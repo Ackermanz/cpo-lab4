@@ -26,12 +26,12 @@ jobs:
       - name: Check code style
         run: pycodestyle .
 
-      #- name: Check python file for typical errors
-      # run: pyflakes .
+      - name: Check python file for typical errors
+       run: pyflakes .
 
       # type annotation checks
-      - name: Type checks
-        run: mypy .
+      #- name: Type checks
+      #  run: mypy .
 
       # if you pretend to make a typed version of your program, you should uncomment these lines:  
       # - name: Strict type checks 

@@ -4,7 +4,6 @@ This is the Lab4 of Computational Process Organization in ITMO, 2022 spring.
 ## Project structure
 
 - `future.py` -- includes done, progress, cancel, result
-   Stateless.
 - `future_test.py` -- unit and PBT tests for `future`.
 
 ## Features

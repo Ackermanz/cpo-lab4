@@ -26,8 +26,8 @@ jobs:
       - name: Check code style
         run: pycodestyle .
 
-      - name: Check python file for typical errors
-        run: pyflakes .
+      #- name: Check python file for typical errors
+      # run: pyflakes .
 
       # type annotation checks
       - name: Type checks

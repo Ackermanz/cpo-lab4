@@ -137,7 +137,8 @@ class MyProcessPoolExecutor(object):
         if max_workers <= 0:
             max_workers = 2
         self.max_workers = max_workers
-        self.work_queue = queue.PriorityQueue()
+        # self.work_queue = queue.Queue()
+        self.work_queue = queue.PriorityQueue()# type: ignore
         assert isinstance(self.work_queue, queue.PriorityQueue)
         self.threadsSet = set()
         for i in range(max_workers):

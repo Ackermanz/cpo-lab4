@@ -1,7 +1,8 @@
+import threading
 import unittest
 import time
-from MyProcessPoolExecutor import *
-from exception import *
+
+from future import MyProcessPoolExecutor, MyTimeoutException, CanceledException
 
 
 def task(n, second):

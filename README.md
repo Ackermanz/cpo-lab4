@@ -14,7 +14,7 @@ This is the Lab4 of Computational Process Organization in ITMO, 2022 spring.
 - Result(timeout=None) return the future execution result (if the future is done);
 - raise the exception (if the future is done and raise an exception);
 - block until the future is done (if the timeout is None and future is not done);
-- raise TimeoutError after timeout (if the timeout is not None and the future is not done).
+- raise TimeoutError after timeout.
 - Cancel() cancel a future (if the future not executed).
 
 ## Contribution
@@ -33,8 +33,8 @@ This is the Lab4 of Computational Process Organization in ITMO, 2022 spring.
 
 ## Design notes
 
-- we practiced a thread pool.  
-- Our library thread pool can do some simple work and can set priorities 
-- so that higher-priority tasks are executed first.  
-- for some abnormal cases our library also has some processing, 
+- we practiced a thread pool.
+- Our library thread pool can do some simple work and can set priorities
+- so that higher-priority tasks are executed first.
+- for some abnormal cases our library also has some processing
 - to ensure the stability of the program

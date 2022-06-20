@@ -1,32 +1,38 @@
-# GROUP-NAME - lab NUMBER - variant NUMBER
-
-This is an example project which demonstrates project structure and necessary
-CI checks. It is not the best structure for real-world projects, but good
-enough for educational purposes.
+# GROUP-NAME - DOBBY - lab 4 - variant 4
+This is the Lab4 of Computational Process Organization in ITMO, 2022 spring.
 
 ## Project structure
 
-- `foo.py` -- implementation of `Foo` class with `hello` and `add` features.
+- `future.py` -- includes done, progress, cancel, result
    Stateless.
-- `foo_test.py` -- unit and PBT tests for `Foo`.
+- `future_test.py` -- unit and PBT tests for `future`.
 
 ## Features
 
-- PBT: `test_add_commutative`
+- IsDone() – return True if future evaluation is complete; 
+- InProgress() – return True if future evaluated right now;
+- Result(timeout=None) – return the future execution result (if the future is done); 
+- raise the exception (if the future is done and raise an exception); 
+- block until the future is done (if the timeout is None and future is not done); 
+- raise TimeoutError after timeout (if the timeout is not None and the future is not done). 
+- Cancel() – cancel a future (if the future not executed).
 
 ## Contribution
 
-- Aleksandr Penskoi (EMAIL) -- all work.
+- Du,Mei(212320038@hdu.edu.cn) -- Implement `future.py`.
+- zhuhaonan(921057454@qq.com) -- Implement `future_test.py`.
 
 ## Changelog
 
-- 29.03.2022 - 2
-  - Add test coverage.
-- 29.03.2022 - 1
-  - Update README. Add formal sections.
-- 29.03.2022 - 0
+- 20.06.2022 - 3
+  - update README
+- 20.03.2022 - 1
+  - update future.py and futurs_test.py.
+- 20.06.2022 - 0
   - Initial
 
 ## Design notes
 
-- ...
+- we practiced a thread pool.  
+- Our library thread pool can do some simple work and can set priorities so that higher-priority tasks are executed first.  
+- for some abnormal cases our library also has some processing, to ensure the stability of the program

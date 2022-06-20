@@ -34,5 +34,7 @@ This is the Lab4 of Computational Process Organization in ITMO, 2022 spring.
 ## Design notes
 
 - we practiced a thread pool.  
-- Our library thread pool can do some simple work and can set priorities so that higher-priority tasks are executed first.  
-- for some abnormal cases our library also has some processing, to ensure the stability of the program
+- Our library thread pool can do some simple work and can set priorities 
+- so that higher-priority tasks are executed first.  
+- for some abnormal cases our library also has some processing, 
+- to ensure the stability of the program

@@ -84,6 +84,8 @@ class TestFuture(unittest.TestCase):
         f3 = excutors.submit(task, 3, 5, priority=2)
         f4 = excutors.submit(task, 4, 5, priority=4)
         time.sleep(1)
+        self.assertEqual(f1.IsProgress(), True)
+        self.assertEqual(f1.IsProgress(), False)
         self.assertEqual(f4.IsProgress(), True)
         self.assertEqual(f3.IsProgress(), False)
 

@@ -3,10 +3,12 @@ import time
 from MyProcessPoolExecutor import *
 from exception import *
 
+
 def task(n, second):
     print("threadid: " + str(threading.current_thread()) + "running the task")
     time.sleep(second)
     return n ** 2
+
 
 class TestFuture(unittest.TestCase):
 
@@ -25,21 +27,21 @@ class TestFuture(unittest.TestCase):
 
     def test_result(self):
         excutors = MyProcessPoolExecutor(4)
-        f1 = excutors.submit(task,1,1)
+        f1 = excutors.submit(task, 1, 1)
         f1.Result()
         self.assertEqual(f1.result, 1)
-        f2 = excutors.submit(task,3,4)
+        f2 = excutors.submit(task, 3, 4)
         self.assertEqual(f2.result, None)
         f2.Result()
         self.assertEqual(f2.result, 9)
 
     def test_timeout(self):
         excutors = MyProcessPoolExecutor(4)
-        f1 = excutors.submit(task,1,1)
+        f1 = excutors.submit(task, 1, 1)
         f1.Result()
         self.assertEqual(f1.result, 1)
         try:
-            f2 = excutors.submit(task,3,4)
+            f2 = excutors.submit(task, 3, 4)
             f2.Result(1)
         except MyTimeoutException:
             print("f2 raise MyTimeoutException")
@@ -48,7 +50,7 @@ class TestFuture(unittest.TestCase):
 
     def test_IsProgress(self):
         excutors = MyProcessPoolExecutor(4)
-        f1 = excutors.submit(task,1,5)
+        f1 = excutors.submit(task, 1, 5)
         time.sleep(1)
         self.assertEqual(f1.IsProgress(), True)
         time.sleep(1)
@@ -60,29 +62,30 @@ class TestFuture(unittest.TestCase):
 
     def test_Cancel(self):
         excutors = MyProcessPoolExecutor(4)
-        f1 = excutors.submit(task,1,5)
+        f1 = excutors.submit(task, 1, 5)
         with self.assertRaises(CanceledException):
             f1.Cancel()
             f1.Result()
-        f2 = excutors.submit(task,2,3)
-        self.assertEqual(f2.Cancel(),True)
-        f3 = excutors.submit(task,3,3)
+        f2 = excutors.submit(task, 2, 3)
+        self.assertEqual(f2.Cancel(), True)
+        f3 = excutors.submit(task, 3, 3)
         time.sleep(1)
-        self.assertEqual(f3.Cancel(),False)
-        f4 = excutors.submit(task,4,3)
+        self.assertEqual(f3.Cancel(), False)
+        f4 = excutors.submit(task, 4, 3)
         time.sleep(5)
-        self.assertEqual(f4.Cancel(),False)
+        self.assertEqual(f4.Cancel(), False)
 
     def test_priority(self):
         excutors = MyProcessPoolExecutor(3)
-        f1 = excutors.submit(task,1,5,priority=1)
-        f2 = excutors.submit(task,2,5,priority=3)
+        f1 = excutors.submit(task, 1, 5, priority=1)
+        f2 = excutors.submit(task, 2, 5, priority=3)
         time.sleep(1)
-        f3 = excutors.submit(task,3,5,priority=2)
-        f4 = excutors.submit(task,4,5,priority=4)
+        f3 = excutors.submit(task, 3, 5, priority=2)
+        f4 = excutors.submit(task, 4, 5, priority=4)
         time.sleep(1)
-        self.assertEqual(f4.IsProgress(),True)
-        self.assertEqual(f3.IsProgress(),False)
+        self.assertEqual(f4.IsProgress(), True)
+        self.assertEqual(f3.IsProgress(), False)
+
 
 if __name__ == '__main__':
     unittest.main()
